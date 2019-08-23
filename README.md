@@ -18,3 +18,16 @@ ___
 * O to show original
 * H to show Hull
 * T to show Tetrahedralization
+
+___
+
+### Images
+
+Obj load: 
+![alt text](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/original.png "Loaded .obj")
+Convex Hull: 
+![alt text](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/hull.png "Loaded .obj")
+Tetrahedralization: 
+![alt text](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/thetra.png "Loaded .obj")
+Tetrahedralization with tetrahedron size changed:
+![alt text](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/thetra2.png "Loaded .obj")
