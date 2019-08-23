@@ -23,10 +23,10 @@ ___
 
 ### Images
 
-Obj load: 
-![alt text](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/original.png "Loaded .obj")
+Obj load:
+![original](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/original.png "Loaded .obj")
 
-Convex Hull: 
+Convex Hull:
 ![alt text](https://github.com/ErisonMiller/3D-Convex-Hull-and-Tetrahedralization-with-visualization/blob/master/Images/hull.png "Loaded .obj")
 
 Tetrahedralization: 
