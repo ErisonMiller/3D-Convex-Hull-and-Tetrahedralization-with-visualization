@@ -1,10 +1,6 @@
 #pragma once
 
 #include "Geometry.h"
-//#include <omp.h>
-
-
-#define QUASE_ZERO -0.00000001
 
 Object Start_Hull(Object o1)
 {
@@ -24,28 +20,28 @@ Object Start_Hull(Object o1)
 
 	//face 1
 	f = Triangle{ v1, v2, v3 };
-	if (dot(f.getNormal(), (*v1 - center).to_unitary()) < QUASE_ZERO) {
+	if (dot(f.getNormal(), (*v1 - center).to_unitary()) < SMALL_NUMBER) {
 		o.add_face(f);
 	}
 	else { o.add_face(Triangle{ v1, v3, v2 }); }
 
 	//face 2
 	f = Triangle{v2, v3, v4};
-	if (dot(f.getNormal(), (*v2 - center).to_unitary()) < QUASE_ZERO) {
+	if (dot(f.getNormal(), (*v2 - center).to_unitary()) < SMALL_NUMBER) {
 		o.add_face(f);
 	}
 	else { o.add_face(Triangle{ v2, v4, v3 }); }
 
 	//face 3
 	f = Triangle{ v1, v2, v4 };
-	if (dot(f.getNormal(), (*v1 - center).to_unitary()) < QUASE_ZERO) {
+	if (dot(f.getNormal(), (*v1 - center).to_unitary()) < SMALL_NUMBER) {
 		o.add_face(f);
 	}
 	else { o.add_face(Triangle{ v1, v4, v2 }); }
 
 	//face 4
 	f = Triangle{ v1, v4, v3 };
-	if (dot(f.getNormal(), (*v1 - center).to_unitary()) < QUASE_ZERO) {
+	if (dot(f.getNormal(), (*v1 - center).to_unitary()) < SMALL_NUMBER) {
 		o.add_face(f);
 	}
 	else { o.add_face(Triangle{ v1, v3, v4 }); }

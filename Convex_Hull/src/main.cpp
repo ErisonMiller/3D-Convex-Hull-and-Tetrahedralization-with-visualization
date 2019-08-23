@@ -1,13 +1,7 @@
 //cgal convexhull
-#include <vector>
 #include <fstream>
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <windows.h>
-#include <time.h>
-#include <omp.h>
-#include <thread>
 
 #include <algorithm>
 //opengl includes
@@ -22,7 +16,7 @@ int width = 900, height = 900;
 Camera cam;
 
 bool show_original = true;
-bool show_t = false, ani = false;
+bool show_t = false;
 
 float size_triang = 0.5f;
 
@@ -157,7 +151,7 @@ void Load_Obj(string name) {
 	int num_objs = -1;
 	int f1, f2, f3;
 	float x, y, z;
-	cout << "calculando...\n";
+	cout << "Processing...\n";
 	while (infile >> tag) {
 		if (tag == "o") {
 			num_objs++;
@@ -218,7 +212,7 @@ void Load_Obj(string name) {
 		triangs.push_back(triang);
 	}
 
-	cout << "Acabei :)\n";
+	cout << "Finished :)\n";
 
 	unsigned num_tetras = 0;
 	unsigned num_faces = 0;
@@ -239,10 +233,10 @@ void Load_Obj(string name) {
 		num_pontos += o.vertices.size();
 	}
 	
-	cout << "Pontos : " << num_pontos << "\n";
-	cout << "Tetras : " << num_tetras << "\n";
-	cout << "Fecho  : " << num_hulls  << "\n";
-	cout << "Faces  : " << num_faces  << "\n";
+	cout << "Points : " << num_pontos << "\n";
+	cout << "Tetrahedrons : " << num_tetras << "\n";
+	cout << "Hull size in faces  : " << num_hulls  << "\n";
+	cout << "Original size in faces  : " << num_faces  << "\n";
 
 
 }
@@ -330,12 +324,17 @@ void keyboard(unsigned char key, int /*x*/, int /*y*/) {
 	case(' '):
 		break;
 	case('l'):
-		cout << "Qual o nome do arquivo?\n";
+		cout << "Obj name?\n";
 		cin >> name;
 		Load_Obj(name);
 		break;
 	case('o'):
-		show_original = !show_original;
+		show_original = true;
+		show_t = false;
+		break;
+	case('h'):
+		show_original = false;
+		show_t = false;
 		break;
 	case('q'):
 		
@@ -355,7 +354,8 @@ void keyboard(unsigned char key, int /*x*/, int /*y*/) {
 		}
 		break;
 	case('t'):
-		show_t = !show_t;
+		show_original = false;
+		show_t = true;
 		break;
 	case('s'):
 		cam = Camera{ Vector3Df{0,-10,0},
@@ -385,7 +385,7 @@ int main(int argc, char** argv) {
 	// specify the initial window size:
 	glutInitWindowSize(width, height);
 	// create the window and set title:
-	glutCreateWindow("Convex Hull");
+	glutCreateWindow("Convex Hull and Tetrahedralization");
 
 
 	
@@ -409,6 +409,7 @@ int main(int argc, char** argv) {
 	glDisable(GL_CULL_FACE);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	//start obj to load
 	Load_Obj("crab.obj");
 	// register callback function to display graphics:
 	glutDisplayFunc(disp);

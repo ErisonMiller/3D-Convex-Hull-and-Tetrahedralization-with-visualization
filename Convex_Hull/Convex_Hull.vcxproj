@@ -137,13 +137,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Convex_Hull.h" />
-    <ClInclude Include="Geometry.h" />
-    <ClInclude Include="Linear_Algebra.h" />
-    <ClInclude Include="Triang.h" />
+    <ClInclude Include="src\Convex_Hull.h" />
+    <ClInclude Include="src\Geometry.h" />
+    <ClInclude Include="src\Linear_Algebra.h" />
+    <ClInclude Include="src\Triang.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
